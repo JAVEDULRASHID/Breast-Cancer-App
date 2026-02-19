@@ -1,0 +1,105 @@
+{% extends "/base.html" %}  
+{% block content %}
+
+<div class="container content">
+
+    <h1>Welcome to the Breast Cancer Prediction App</h1>
+    <p>Breast cancer is a complex disease where cells in the 
+        breast divide and multiply in an uncontrolled manner, often
+        forming a tumor that can be classified as either benign 
+        (non-cancerous) or malignant (cancerous). Early and accurate diagnosis 
+        is critical, as it significantly increases the chances of successful
+        treatment and long-term survival.</p>
+    <p>To assist us in this diagnostic process, our project utilizes the <span> <a href="https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data">Wisconsin Breast Cancer Diagnostic (WBCD)</a></span>  dataset, 
+        a cornerstone of medical machine learning. This dataset consists of 569 samples with 30 numerical features derived from digitized 
+        images of fine needle aspirates (FNA) of breast masses. These features describe the geometric properties of cell nuclei—such 
+        as radius, texture, perimeter, area, and smoothness—measuring the mean, 
+        standard error, and "worst" values for each characteristic. Because these physical 
+        dimensions differ significantly between healthy and cancerous cells, AI models 
+        can effectively learn to distinguish the two classes, providing a powerful tool 
+        for automated medical screening.</p>
+    <p>This application allows you to predict whether a breast tumor is malignant or benign based
+         on various features. Below you will have to fill in the feature values for a new sample and then submit the form. 
+         A trained model will verify the entries and will predict the outcome.</p>
+</div>
+
+<div class="form-container">
+    <div class="form-sec">
+
+        <h2>Please fill in the feature values below to make a prediction:</h2>
+    </div>
+    <div class="form-container">
+        <form action="{{url_for('predict')}}" method="POST">
+            <h2>Tumor Feature Analysis</h2>
+            <div class="input-grid">
+                <div class="form-group">
+                    <label>Radius Mean</label>
+                    <input type="number" step="any" name="radius_mean" value="14.0" required>
+                </div>
+                <div class="form-group">
+                    <label>Perimeter Mean</label>
+                    <input type="number" step="any" name="perimeter_mean" value="92.0" required>
+                </div>
+                <div class="form-group">
+                    <label>Area Mean</label>
+                    <input type="number" step="any" name="area_mean" value="650.0" required>
+                </div>
+                <div class="form-group">
+                    <label>Concavity Mean</label>
+                    <input type="number" step="any" name="concavity_mean" value="0.08" required>
+                </div>
+                <div class="form-group">
+                    <label>Concave Points Mean</label>
+                    <input type="number" step="any" name="concave points_mean" value="0.05" required>
+                </div>
+                <div class="form-group">
+                    <label>Compactness Mean</label>
+                    <input type="number" step="any" name="compactness_mean" value="0.10" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Radius SE</label>
+                    <input type="number" step="any" name="radius_se" value="0.40" required>
+                </div>
+                <div class="form-group">
+                    <label>Perimeter SE</label>
+                    <input type="number" step="any" name="perimeter_se" value="2.8" required>
+                </div>
+                <div class="form-group">
+                    <label>Area SE</label>
+                    <input type="number" step="any" name="area_se" value="40.0" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Radius Worst</label>
+                    <input type="number" step="any" name="radius_worst" value="16.2" required>
+                </div>
+                <div class="form-group">
+                    <label>Perimeter Worst</label>
+                    <input type="number" step="any" name="perimeter_worst" value="107.0" required>
+                </div>
+                <div class="form-group">
+                    <label>Area Worst</label>
+                    <input type="number" step="any" name="area_worst" value="880.0" required>
+                </div>
+                <div class="form-group">
+                    <label>Concavity Worst</label>
+                    <input type="number" step="any" name="concavity_worst" value="0.25" required>
+                </div>
+                <div class="form-group">
+                    <label>Compactness Worst</label>
+                    <input type="number" step="any" name="compactness_worst" value="0.25" required>
+                </div>
+                <div class="form-group">
+                    <label>Concave Points Worst</label>
+                    <input type="number" step="any" name="concave points_worst" value="0.15" required>
+                </div>
+            </div>
+            
+            <button type="submit" class="predict-btn">Analyze Biopsy Data</button>
+        </form>
+    </div>
+        
+        
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "/base.html" %}  
+{% block content %}
+
+<div class="result-container">
+    <h2>Prediction Result</h2>
+    <p>The predicted diagnosis for the given features is: <strong>{{ prediction }}</strong></p>
+    {% if prediction == 'Malignant' %}
+        <div>
+            <p>A malignant result suggests that the cellular features analyzed align with patterns
+                 typically seen in cancerous growths. Malignant cells have the potential to invade
+                  nearby tissues and may require medical intervention. Please note: This is an
+                   AI-assisted analysis and not a final medical diagnosis. You should contact your 
+                   specialist immediately to review these findings and discuss the next steps in your diagnostic 
+                   and treatment plan.</p>
+        </div>    
+    {% elif prediction == 'Benign' %}
+        <div>
+            <p>A benign result indicates that the features analyzed from the biopsy—such 
+                as the size, shape, and uniformity of the cell nuclei—do not currently show characteristics 
+                of cancer. Benign tumors are non-cancerous growths that do not spread to other 
+                parts of the body. While this is a positive finding, it is important to discuss
+                 these results with your healthcare provider to determine if any follow-up monitoring or further
+                  testing is needed.
+            </p>
+        </div>
+    {% endif %}
+    <div class="button-container">
+        <a href="{{ url_for('index') }}" class="btn">Make Another Prediction</a>
+    </div>
+</div>  
+
+{% endblock %}

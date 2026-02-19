@@ -1,0 +1,24 @@
+stages:
+  preprocess:
+    cmd: "python -m src.stages.dataset"
+    deps:
+      - src/stages/dataset.py
+      - ${data.source}
+
+    outs:
+      - ${data.processed}  
+    params:
+      - data.source
+      - data.processed
+  
+  train:
+    cmd: "python -m src.stages.train"
+    deps:
+      - src/stages/train.py
+      - ${data.processed}
+    outs:
+      - ${model.path}
+    params:
+      - data.processed
+      - model.name
+      - model.path

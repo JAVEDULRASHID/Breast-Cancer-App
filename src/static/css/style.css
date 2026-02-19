@@ -1,0 +1,114 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.container h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+.content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    flex-direction: column;
+}
+.content h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+.content p {
+    color: #666;
+    font-size: 22px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+.form-container {
+    width: 80%; 
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+.predict-btn {
+    width: 100%;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #e91e63; 
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.result-container, .error-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+.result-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+.result-container p {
+    color: #666;
+    font-size: 22px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.btn {  
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #e91e63; 
+    border: none;
+    border-radius: 15px;
+}
+.button-container {
+    display: flex;
+    justify-content: center; 
+    margin-top: 20px;       
+}

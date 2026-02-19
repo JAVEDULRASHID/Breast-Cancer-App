@@ -1,0 +1,8 @@
+data:
+  source: data/raw/breast_cancer_data.csv
+  processed: data/processed/selected_features.csv
+
+model:
+  name: random_forest # knn / logistic_regression
+  path: models/random_forest_model.pkl
+  
