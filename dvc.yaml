@@ -17,7 +17,9 @@ stages:
       - src/stages/train.py
       - ${data.processed}
     outs:
-      - ${model.path}
+      - ${model.path}:
+          persist: true
+
     params:
       - data.processed
       - model.name
