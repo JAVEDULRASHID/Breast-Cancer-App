@@ -1,0 +1,43 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python -m src.stages.dataset
+    deps:
+    - path: data/raw/breast_cancer_data.csv
+      hash: md5
+      md5: 6165d90b8708bb1c1dd14245cc6bef46
+      size: 125204
+    - path: src/stages/dataset.py
+      hash: md5
+      md5: 4df79b69b980450329e8949ec7876f7e
+      size: 1850
+    params:
+      params.yaml:
+        data.processed: data/processed/selected_features.csv
+        data.source: data/raw/breast_cancer_data.csv
+    outs:
+    - path: data/processed/selected_features.csv
+      hash: md5
+      md5: 72b343cadfce15e86a38e8575e5ee581
+      size: 57606
+  train:
+    cmd: python -m src.stages.train
+    deps:
+    - path: data/processed/selected_features.csv
+      hash: md5
+      md5: 72b343cadfce15e86a38e8575e5ee581
+      size: 57606
+    - path: src/stages/train.py
+      hash: md5
+      md5: 3dc1e72d5fe0c941f7489d5141d57ffc
+      size: 2435
+    params:
+      params.yaml:
+        data.processed: data/processed/selected_features.csv
+        model.name: random_forest
+        model.path: models/random_forest_model.pkl
+    outs:
+    - path: models/random_forest_model.pkl
+      hash: md5
+      md5: 2800b19cf1d521499f561e000f51659b
+      size: 380345
