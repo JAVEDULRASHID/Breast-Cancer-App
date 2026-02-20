@@ -16,7 +16,8 @@ def create_app():
         params = yaml.safe_load(f)
 
   
-    model = joblib.load(params['model']['path'])
+    model = joblib.load(params['model']['trained_model'])
+    #model = joblib.load(params['model']['path'])
     FEATURES = model.feature_names_in_
 
     @main_app.route('/', methods=['GET'])

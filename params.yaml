@@ -5,4 +5,5 @@ data:
 model:
   name: random_forest # knn / logistic_regression
   path: models/random_forest_model.pkl
+  trained_model: models/trained_model.pkl
   
